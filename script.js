@@ -19,3 +19,7 @@ function displayBooks() {
         console.log(book.info());
     }
 }
+
+function showForm() {
+    document.getElementById('formElement').style.display = 'block';
+}

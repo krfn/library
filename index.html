@@ -3,10 +3,11 @@
 <html>
     <head>
         <title>Library</title>
+        <link rel="stylesheet" href="main.css" />
     </head>
     <body>
-        <button type="button">NEW BOOK</button>
-        <form>
+        <button type="button" onclick="showForm()">NEW BOOK</button>
+        <form id="formElement">
             <label for="title">Title:</label>
             <input type="text" id="title" name="title" /><br>
             <label for="author">Author:</label>
@@ -15,5 +16,6 @@
             <input type="text" id="pages" name="pages" /><br><br>
             <input type="submit" value="Add" />
         </form>
+        <script src="script.js"></script>
     </body>
 </html>
