@@ -16,12 +16,27 @@ function addBooktoLibrary(book) {
     myLibrary.push(book);
 }
 
+function removeBookfromLibrary(book) {
+    myLibrary.splice(parseInt(book.name));
+}
+
 function displayBooks() {
-    const library = document.getElementById('library');
+    const display = document.getElementById('library');
+
     for (item of myLibrary) {
         let book = document.createElement('p');
         book.textContent = item.info();
-        library.appendChild(book);
+
+        let removeButton = document.createElement('button');
+        removeButton.type = 'button';
+        removeButton.name = myLibrary.indexOf(item);
+        removeButton.textContent = 'Remove';
+        removeButton.addEventListener('click', function() {
+            removeBookfromLibrary(book)
+        });
+
+        display.appendChild(book);
+        display.appendChild(removeButton);
     }
 }
 
