@@ -1,4 +1,6 @@
 let myLibrary = [];
+const display = document.getElementById('library');
+
 addBooktoLibrary(new Book("The Hobbit", "J. R. R. Tolkien", 400, "completed"));
 addBooktoLibrary(new Book("Republic", "Plato", 300, "completed"));
 
@@ -16,26 +18,26 @@ function addBooktoLibrary(book) {
     myLibrary.push(book);
 }
 
-function removeBookfromLibrary(book) {
-    myLibrary.splice(parseInt(book.name));
+function removeBookfromLibrary(index) {
+    myLibrary.splice(index);
 }
 
 function displayBooks() {
-    const display = document.getElementById('library');
-
-    for (item of myLibrary) {
-        let book = document.createElement('p');
-        book.textContent = item.info();
+    for (book of myLibrary) {
+        let details = document.createElement('p');
+        details.textContent = book.info();
 
         let removeButton = document.createElement('button');
         removeButton.type = 'button';
-        removeButton.name = myLibrary.indexOf(item);
+        removeButton.id = myLibrary.indexOf(book);
         removeButton.textContent = 'Remove';
         removeButton.addEventListener('click', function() {
-            removeBookfromLibrary(book)
+            details.remove();
+            removeButton.remove();
+            removeBookfromLibrary(removeButton.id);
         });
 
-        display.appendChild(book);
+        display.appendChild(details);
         display.appendChild(removeButton);
     }
 }
