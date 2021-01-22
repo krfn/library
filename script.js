@@ -4,6 +4,8 @@ const display = document.getElementById('library');
 addBooktoLibrary(new Book("The Hobbit", "J. R. R. Tolkien", 400, "completed"));
 addBooktoLibrary(new Book("Republic", "Plato", 300, "completed"));
 
+for (book of myLibrary) { displayBook(book) }
+
 function Book(title, author, pages, read) {
     this.title = title
     this.author = author
@@ -22,28 +24,39 @@ function removeBookfromLibrary(index) {
     myLibrary.splice(index);
 }
 
-function displayBooks() {
-    for (book of myLibrary) {
-        let details = document.createElement('p');
-        details.textContent = book.info();
+function displayBook(book) { 
+    let details = document.createElement('p');
+    details.textContent = book.info();
 
-        let removeButton = document.createElement('button');
-        removeButton.type = 'button';
-        removeButton.id = myLibrary.indexOf(book);
-        removeButton.textContent = 'Remove';
-        removeButton.addEventListener('click', function() {
-            details.remove();
-            removeButton.remove();
-            removeBookfromLibrary(removeButton.id);
-        });
+    let removeButton = document.createElement('button');
+    removeButton.type = 'button';
+    removeButton.id = myLibrary.indexOf(book);
+    removeButton.textContent = 'Remove';
+    removeButton.addEventListener('click', function() {
+        details.remove();
+        removeButton.remove();
+        removeBookfromLibrary(removeButton.id);
+    });
 
-        display.appendChild(details);
-        display.appendChild(removeButton);
-    }
+    display.appendChild(details);
+    display.appendChild(removeButton);
 }
 
 function showForm() {
     document.getElementById('formElement').style.display = 'block';
 }
 
-displayBooks();
+function hideForm() {
+    document.getElementById('formElement').style.display = 'none';
+}
+
+function submitForm() {
+    let title = document.getElementById('title').value;
+    let author = document.getElementById('author').value;
+    let pages = document.getElementById('pages').value;
+
+    const book = new Book(title, author, pages, "completed");
+    addBooktoLibrary(book);
+    displayBook(book);
+    hideForm();
+}
