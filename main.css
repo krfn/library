@@ -1,3 +1,22 @@
+button {
+    background-color: cornflowerblue;
+    font: 16px 'Courier New', 'sans-serif';
+}
+
+button.remove {
+    grid-column-start: 2;
+}
+
 form {
     display: none;
+}
+
+label, p {
+    font: 18px 'Garamond', 'sans-serif';
+}
+
+section {
+    display: grid;
+    grid-template-columns: 500px 100px;
+    row-gap: 30px;
 }

@@ -25,12 +25,13 @@ function removeBookfromLibrary(index) {
 }
 
 function displayBook(book) { 
-    let details = document.createElement('p');
+    const details = document.createElement('p');
     details.textContent = book.info();
 
-    let removeButton = document.createElement('button');
+    const removeButton = document.createElement('button');
     removeButton.type = 'button';
     removeButton.id = myLibrary.indexOf(book);
+    removeButton.className = 'remove';
     removeButton.textContent = 'Remove';
     removeButton.addEventListener('click', function() {
         details.remove();
@@ -51,9 +52,9 @@ function hideForm() {
 }
 
 function submitForm() {
-    let title = document.getElementById('title').value;
-    let author = document.getElementById('author').value;
-    let pages = document.getElementById('pages').value;
+    const title = document.getElementById('title').value;
+    const author = document.getElementById('author').value;
+    const pages = document.getElementById('pages').value;
 
     const book = new Book(title, author, pages, "completed");
     addBooktoLibrary(book);
