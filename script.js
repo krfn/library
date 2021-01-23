@@ -25,6 +25,9 @@ function removeBookfromLibrary(index) {
 }
 
 function displayBook(book) { 
+    const cellLeft = document.createElement('div');
+    const cellRight = document.createElement('div');
+
     const details = document.createElement('p');
     details.textContent = book.info();
 
@@ -34,13 +37,15 @@ function displayBook(book) {
     removeButton.className = 'remove';
     removeButton.textContent = 'Remove';
     removeButton.addEventListener('click', function() {
-        details.remove();
-        removeButton.remove();
+        cellLeft.remove();
+        cellRight.remove();
         removeBookfromLibrary(removeButton.id);
     });
 
-    display.appendChild(details);
-    display.appendChild(removeButton);
+    display.appendChild(cellLeft);
+    display.appendChild(cellRight);
+    cellLeft.appendChild(details);
+    cellRight.appendChild(removeButton);
 }
 
 function showForm() {
