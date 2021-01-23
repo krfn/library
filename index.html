@@ -7,20 +7,21 @@
     </head>
     <body>
         <section id="library">
+            <div id="submission">
+                <form id="formElement" onsubmit="submitForm(); return false">
+                    <label for="title">Title:</label><br>
+                    <input type="text" id="title" class="field" name="title" required /><br>
+                    <label for="author">Author:</label><br>
+                    <input type="text" id="author" class="field" name="author" required /><br>
+                    <label for="pages">Pages:</label><br>
+                    <input type="text" id="pages" class="field" name="pages" required /><br><br>
+                    <input type="submit" />
+                </form>
+            </div>
             <div id="header">
                 <h1>MY COLLECTION</h1>
             </div>
         </section>
-        <button type="button" onclick="showForm()">NEW BOOK</button>
-        <form id="formElement" onsubmit="submitForm(); return false">
-            <label for="title">Title:</label>
-            <input type="text" id="title" name="title" required /><br>
-            <label for="author">Author:</label>
-            <input type="text" id="author" name="author" required /><br>
-            <label for="pages">Pages:</label>
-            <input type="text" id="pages" name="pages" required /><br><br>
-            <input type="submit" />
-        </form>
         <script src="script.js"></script>
     </body>
 </html>

@@ -48,14 +48,6 @@ function displayBook(book) {
     cellRight.appendChild(removeButton);
 }
 
-function showForm() {
-    document.getElementById('formElement').style.display = 'block';
-}
-
-function hideForm() {
-    document.getElementById('formElement').style.display = 'none';
-}
-
 function submitForm() {
     const title = document.getElementById('title').value;
     const author = document.getElementById('author').value;
@@ -64,5 +56,4 @@ function submitForm() {
     const book = new Book(title, author, pages, "completed");
     addBooktoLibrary(book);
     displayBook(book);
-    hideForm();
 }
